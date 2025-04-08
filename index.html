@@ -300,7 +300,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.superfi" target="_blank">Play Store</a>
       </div>
       <div class="project-card">
-        <img src="https://play-lh.googleusercontent.com/F9KJ9vN7nB8=s180" alt="PAX">
+        <img src="https://via.placeholder.com/350x200.png?text=Tryko+PAX+App" alt="PAX">
         <h3>Tryko PAX</h3>
         <ul>
           <li>Health & wellness tracking app</li>
@@ -359,40 +359,41 @@
       menu.classList.toggle("open");
       icon.classList.toggle("fa-bars");
       icon.classList.toggle("fa-times");
+      icon.style.color = "white";
     }
 
     document.addEventListener("DOMContentLoaded", function () {
       setTimeout(type, 500);
       document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+          link.classList.add('active');
+
+          const menu = document.getElementById("drawerMenu");
+          const icon = document.getElementById("menuIcon");
+          if (menu.classList.contains('open')) {
+            menu.classList.remove("open");
+            icon.classList.add("fa-bars");
+            icon.classList.remove("fa-times");
+            icon.style.color = '#0f172a';
+          }
+        });
+      });
     });
 
     window.addEventListener('scroll', () => {
-      const button = document.querySelector('.menu-button');
       const icon = document.getElementById('menuIcon');
-      if (window.scrollY > 50 && !icon.classList.contains('fa-times')) {
-        button.style.color = '#0f172a';
-      } else {
-        button.style.color = 'white';
+      if (!icon.classList.contains('fa-times')) {
+        const button = document.querySelector('.menu-button');
+        if (window.scrollY > 50) {
+          button.style.color = '#0f172a';
+        } else {
+          button.style.color = 'white';
+        }
       }
-
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('.drawer a');
-
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
     });
   </script>
 </body>
