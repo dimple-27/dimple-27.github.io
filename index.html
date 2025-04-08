@@ -8,7 +8,7 @@
   <style>
     :root {
       --main-color: #0f172a;
-      --accent-color: #2563eb;
+      --accent-color: #10b981;
       --bg-gradient: #ffffff;
     }
 
@@ -26,7 +26,7 @@
     }
 
     header {
-      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      background: linear-gradient(135deg, #14b8a6, #06b6d4);
       color: white;
       padding: 4rem 1rem;
       text-align: center;
@@ -105,7 +105,7 @@
     }
 
     .resume-button:hover {
-      background: #1d4ed8;
+      background: #0f766e;
     }
 
     .skills {
@@ -123,7 +123,7 @@
     }
 
     .skills li {
-      background: #e0f2fe;
+      background: #d1fae5;
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-size: 0.9rem;
@@ -137,7 +137,7 @@
     }
 
     .project-card {
-      background: #f8fafc;
+      background: #f1f5f9;
       padding: 1.5rem;
       border-radius: 12px;
       width: 350px;
@@ -209,88 +209,91 @@
 </head>
 <body>
   <header>
-    <img src="https://via.placeholder.com/120" alt="Profile Picture">
+    <img src="profile.jpg" alt="Profile Picture">
     <h1>Vishal Patel</h1>
     <div class="typing-text" id="typing"></div>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
+  <section class="about">
     <h2>About Me</h2>
-    <p class="about">
-      Passionate full-stack developer crafting clean and user-friendly experiences. Specialized in JavaScript, React, and Node.js with a knack for responsive design and API integration.
-    </p>
-    <div style="text-align: center;">
-      <a class="resume-button" href="resume.pdf" target="_blank">View Resume</a>
-    </div>
-    <div class="skills">
-      <h3>Skills</h3>
-      <ul>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>React Native</li>
-        <li>Node.js</li>
-        <li>Express.js</li>
-        <li>MongoDB</li>
-        <li>HTML/CSS</li>
-        <li>UI/UX Design</li>
-        <li>Firebase</li>
-      </ul>
-    </div>
+    <p>I'm a passionate full-stack developer with experience building web and mobile applications using modern technologies.</p>
+    <a href="#" class="resume-button">View Resume</a>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>Express</li>
+      <li>React Native</li>
+      <li>MongoDB</li>
+      <li>MySQL</li>
+      <li>HTML & CSS</li>
+      <li>Git & GitHub</li>
+    </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <!-- Project Cards Already Here -->
+      <div class="project-card">
+        <img src="scalerocket-screenshot.jpg" alt="Scalerocket Project">
+        <h3>Scalerocket (Abbacus Technologies)</h3>
+        <ul>
+          <li>Developed business management dashboards for clients across industries.</li>
+          <li>Built scalable microservices architecture and reusable frontend components.</li>
+          <li>Worked closely with the design and QA teams to ensure seamless UI/UX.</li>
+          <li>Implemented analytics and data visualization for customer behavior insights.</li>
+          <li>Enhanced lead tracking, CRM tools, and performance reports.</li>
+          <li>Contributed to projects that helped scale operations for multiple startups.</li>
+        </ul>
+        <a href="https://www.linkedin.com/company/scalerocket-abbacustechnologies" target="_blank">Company Page</a>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact">
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>Phone: +91-9876543210</p>
-      <p>GitHub: <a href="https://github.com/vishalpatel247" target="_blank">github.com/vishalpatel247</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/vishalpatel247" target="_blank">linkedin.com/in/vishalpatel247</a></p>
-    </div>
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: vishalpatel@example.com</p>
+    <p>Phone: +91-9876543210</p>
   </section>
 
   <footer>
-    © 2025 Vishal Patel | Built with 💻 and ☕
+    <p>&copy; 2025 Vishal Patel. All rights reserved.</p>
   </footer>
 
   <script>
-    const roles = ["Full Stack Developer", "React Specialist", "Node.js Backend Dev", "UI/UX Enthusiast"];
-    let i = 0, j = 0, current = '', isDeleting = false;
-    const typingEl = document.getElementById('typing');
+    const typingText = document.getElementById("typing");
+    const texts = ["Full Stack Developer", "React Native Enthusiast", "Tech Problem Solver"];
+    let index = 0;
+    let charIndex = 0;
 
     function type() {
-      const role = roles[i];
-      if (isDeleting) {
-        current = role.substring(0, j--);
+      if (charIndex < texts[index].length) {
+        typingText.textContent += texts[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
       } else {
-        current = role.substring(0, j++);
-      }
-      typingEl.innerHTML = current + '<span style="border-right: 2px solid white;"></span>';
-
-      if (!isDeleting && j === role.length) {
-        isDeleting = true;
-        setTimeout(type, 1000);
-      } else if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % roles.length;
-        setTimeout(type, 300);
-      } else {
-        setTimeout(type, isDeleting ? 50 : 100);
+        setTimeout(erase, 2000);
       }
     }
-    type();
+
+    function erase() {
+      if (charIndex > 0) {
+        typingText.textContent = texts[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        index = (index + 1) % texts.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(type, 500);
+    });
   </script>
 </body>
 </html>
