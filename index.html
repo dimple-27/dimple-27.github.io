@@ -26,6 +26,48 @@
       color: var(--main-color);
     }
 
+    .menu-button {
+      display: none;
+      font-size: 2rem;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1001;
+      background: transparent;
+      border: none;
+      color: white;
+    }
+
+    nav.drawer {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background: #0f172a;
+      color: white;
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    nav.drawer.open {
+      left: 0;
+    }
+
+    nav.drawer a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    nav.drawer a:hover {
+      color: var(--accent-color);
+    }
+
     header {
       background: linear-gradient(135deg, #14b8a6, #06b6d4);
       color: white;
@@ -51,27 +93,6 @@
       font-size: 1.5rem;
       margin-top: 1rem;
       height: 30px;
-    }
-
-    nav {
-      background: white;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      z-index: 999;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: var(--main-color);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
     }
 
     section {
@@ -208,22 +229,21 @@
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .projects {
-        flex-direction: column;
-        align-items: center;
+      .menu-button {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <button class="menu-button" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav class="drawer" id="drawerMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
   </nav>
 
   <header>
@@ -321,6 +341,11 @@
         index = (index + 1) % texts.length;
         setTimeout(type, 500);
       }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("drawerMenu");
+      menu.classList.toggle("open");
     }
 
     document.addEventListener("DOMContentLoaded", function () {
