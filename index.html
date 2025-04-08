@@ -35,7 +35,6 @@
       z-index: 1001;
       background: transparent;
       border: none;
-      color: white;
       cursor: pointer;
       transition: color 0.3s ease;
     }
@@ -272,6 +271,7 @@
         padding: 1.5rem 1rem;
       }
     }
+
   </style>
 </head>
 <body>
@@ -424,6 +424,11 @@ writing clean, maintainable code, and collaborating with cross-functional teams.
       menu.classList.toggle("open");
       icon.classList.toggle("fa-bars");
       icon.classList.toggle("fa-times");
+      if (menu.classList.contains("open")) {
+        icon.style.color = "white";
+      } else {
+        icon.style.color = "#0f172a"; // Reset to default color
+      }
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -448,17 +453,6 @@ writing clean, maintainable code, and collaborating with cross-functional teams.
       });
     });
 
-    window.addEventListener('scroll', () => {
-      const icon = document.getElementById('menuIcon');
-      if (!icon.classList.contains('fa-times')) {
-        const button = document.querySelector('.menu-button');
-        if (window.scrollY > 50) {
-          button.style.color = '#0f172a';
-        } else {
-          button.style.color = '#0f172a';
-        }
-      }
-    });
   </script>
 </body>
 </html>
