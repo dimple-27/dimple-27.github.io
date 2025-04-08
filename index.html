@@ -1,572 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dimple Patel - React Native Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
 
-        body {
-            line-height: 1.6;
-            color: #2c3e50;
-            <!--/* background: #6c5ce7; */-->
-            min-height: 100vh;
-            padding: 2rem;
-        }
+    header {
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background-color: #f8f9fa;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-radius: 16px;
-            overflow: hidden;
-        }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
 
-        .header {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: #6c5ce7;
-            color: white;
-        }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
 
-        .experience-item, .project-item {
-            background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    main {
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
 
-        .download-btn {
-            background: rgba(255, 255, 255, 0.9);
-            color: #6c5ce7;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    section {
+      margin-bottom: 3rem;
+    }
 
-        .download-btn:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4f46e5;
+    }
 
-        .section-title {
-            color: #6c5ce7;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding: 0.5rem;
-        }
+    .about p {
+      font-size: 1.1rem;
+      color: #374151;
+    }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
-            margin-left : 0.5rem;
-        }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
 
-        .experience-item, .project-item {
-            background: rgba(248, 249, 250, 1); /* Changed from #f8f9fa to solid color */
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .project {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .experience-item:hover, .project-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
 
-        .experience-item h3, .project-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
+    .project h3 {
+      margin-top: 0;
+      color: #111827;
+    }
 
-        .date {
-            color: #764ba2;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
+    .project p {
+      color: #6b7280;
+    }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+    .project a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #3b82f6;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    .project a:hover {
+      text-decoration: underline;
+    }
 
-        .skill-tag:hover {
-            transform: translateY(-3px);
-        }
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
 
-        .project-links a {
-            color: #764ba2;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            margin-top: 1rem;
-        }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #e5e7eb;
+      color: #374151;
+      font-size: 0.9rem;
+    }
 
-        .project-links a:hover {
-            color: #667eea;
-        }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
 
-        .project-links i {
-            font-size: 1.1rem;
-        }
-
-        .contact-info i {
-            margin-right: 0.5rem;
-        }
-
-        .header .contact-info a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .header .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 1rem 0;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        ul li:before {
-            content: '•';
-            color: #764ba2;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .container {
-                margin: 0;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .skills-list {
-                gap: 0.5rem;
-            }
-
-            .skill-tag {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        body {
-            margin: 0; /* Remove body margin */
-            padding: 0; /* Remove body padding */
-            line-height: 1.4; /* Adjust line height for better spacing */
-        }
-
-        .container {
-            max-width: 100%; /* Ensure the container takes full width */
-            margin: 0; /* Remove container margin */
-            padding: 1rem; /* Add minimal padding */
-            background-color: #f8f9fa;
-            box-shadow: none; /* Remove shadow for PDF */
-            border-radius: 0; /* Remove border radius for PDF */
-        }
-
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .download-btn {
-                display: none !important;
-                visibility: hidden;
-                opacity: 0;
-            }
-
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+      .project {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Dimple Patel</h1>
-            <div class="contact-info">
-                <p><i class="fas fa-code"></i>React Native Developer</p>
-                <p><i class="fas fa-envelope"></i>dimplep803@gmail.com</p>
-                <p><i class="fas fa-phone"></i>9998181360</p>
-                <p><i class="fab fa-linkedin"></i><a href="https://in.linkedin.com/in/dimple-patel-596507141
-                                                      " target="_blank">LinkedIn Profile</a></p>
-                <button class="download-btn" onclick="downloadPDF()">
-                    <i class="fas fa-download"></i> Download Resume
-                </button>
-            </div>
-        </header>
+  <header>
+    <h1>Your Name</h1>
+    <p>Full-Stack Developer • JavaScript | React | Node.js</p>
+  </header>
 
-        <div class="main-content">
-            <div class="section">
-                <h2 class="section-title">Career Objective</h2>
-                <div class="experience-item">
-                    <p>Innovative and detail-oriented React Native Developer with 5+ years of experience, including 3+ years in React Native. Passionate about building high-performance mobile applications with seamless user experiences. Proficient in React Native, Java (Android), and modern frameworks. Adept at problem-solving, writing clean, maintainable code, and collaborating with cross-functional teams.</p>
-                </div>
-            </div>
+  <main>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate software developer who builds clean, scalable, and user-focused web apps. I love solving problems, collaborating with teams, and constantly learning new things. Whether it's crafting smooth UI or architecting robust backend APIs, I enjoy bringing ideas to life through code.
+      </p>
+    </section>
 
-            <div class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="experience-item">
-                    <h3><i class="fas fa-briefcase"></i> Abbacus Technologies</h3>
-                    <p class="date"><i class="far fa-calendar-alt"></i> April 2024 - Present</p>
-                    <ul>
-                        <li>Develop and maintain cross-platform mobile applications</li>
-                        <li>Collaborate with designers and backend developers to optimize performance.</li>
-                        <li>Implement new features and fix bugs to enhance user experience</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3><i class="fas fa-briefcase"></i> Acquaint Softtech Private Limited</h3>
-                    <p class="date"><i class="far fa-calendar-alt"></i> Sep 2022 - March 2024</p>
-                    <ul>
-                        <li>Developed and maintained mobile applications using React Native and Android (Java)</li>
-                        <li>Worked closely with teams to deliver user-focused applications.</li>
-                        <li>Ensured code quality, performance, and scalability through testing and maintenance.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3><i class="fas fa-briefcase"></i> Creole Studios</h3>
-                    <p class="date"><i class="far fa-calendar-alt"></i> Jan 2022 - Aug 2022</p>
-                   <ul>
-                        <li>Managed projects independently while working with dedicated clients</li>
-                        <li>Lead a team to develop mobile applications and ensure smooth execution</li>
-                        <li>Wrote efficient, reusable, and scalable code.</li>
-                        <li>Strong client communication and stakeholder collaboration skills</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3><i class="fas fa-briefcase"></i> Freelance Android & React Native Developer</h3>
-                    <p class="date"><i class="far fa-calendar-alt"></i> Sep 2020 - Dec 2021</p>
-                    <ul>
-                        <li>Developed custom mobile applications based on client requirements</li>
-                        <li>Ensured timely project delivery and maintained high-quality standards.</li>
-                        <li>Provided post-development support and updates.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3><i class="fas fa-briefcase"></i> Techtic Solutions</h3>
-                    <p class="date"><i class="far fa-calendar-alt"></i> Nov 2017 - Jan 2020</p>
-                    <ul>
-                        <li>Developed mobile applications for Android and React Native platforms.</li>
-                        <li>Worked closely with designers and product managers to enhance UX.</li>
-                        <li>Integrated APIs and improved app performance.</li>
-                        <li>Excellent problem-solving and conflict resolution when working with clients</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-list">
-                    <span class="skill-tag"><i class="fas fa-server"></i> REST APIs</span>
-                    <span class="skill-tag"><i class="fas fa-code"></i> JSON Parsing</span>
-                    <span class="skill-tag"><i class="fab fa-google"></i> Google APIs</span>
-                    <span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span>
-                    <span class="skill-tag"><i class="fas fa-paint-brush"></i> Dynamic Design</span>
-                    <span class="skill-tag"><i class="fab fa-react"></i> React Native</span>
-                    <span class="skill-tag"><i class="fas fa-code-branch"></i> Functional Components</span>
-                    <span class="skill-tag"><i class="fas fa-code"></i> Hooks</span>
-                    <span class="skill-tag"><i class="fas fa-database"></i> Redux</span>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="experience-item">
-                    <h3><i class="fas fa-graduation-cap"></i>B.E in Computer Science(SABAR Institute of Technology for Girls)</h3>
-                    <p class="date">2013 - 2017</p>
-                </div>
-            </div>
-
-<!--             <div class="section"> -->
-<!--                 <h2 class="section-title">Featured Projects</h2> -->
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-map-marker-alt"></i> AddonTrack</h3>
-                    <p>Vehicle tracking application with real-time monitoring capabilities.</p>
-                    <ul>
-                        <li>Real-time vehicle tracking and route history</li>
-                        <li>Fuel and speed monitoring</li>
-                        <li>Remote engine control</li>
-                        <li>Daily vehicle summary reports</li>
-                    </ul>
-                 
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-comment-dots"></i> HowzIt AI Messenger</h3>
-                    <p>Advanced messaging application with AI integration.</p>
-                    <ul>
-                        <li>WhatsApp-like messaging with AI features</li>
-                        <li>Multimedia file sharing</li>
-                        <li>Group chat, personal chat, and broadcast</li>
-                        <li>Animated stickers and greeting cards</li>
-                        <li>Emotion-based message color customization</li>
-                    </ul>
-                  
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-box"></i> GSP SLR 525</h3>
-                    <p>Inventory management system for distributors and retailers.</p>
-                    <ul>
-                        <li>Real-time stock management</li>
-                        <li>Distributor-retailer stock assignment</li>
-                        <li>Reward points system</li>
-                        <li>Order history tracking</li>
-                    </ul>
-                   
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-newspaper"></i> DB CITIZEN</h3>
-                    <p>Citizen journalism platform for news sharing.</p>
-                    <ul>
-                        <li>User-generated news content</li>
-                        <li>Multi-format news upload (image, video, audio, text)</li>
-                        <li>Article rating system</li>
-                        <li>Personal story management</li>
-                        <li>Built with Firestore and Firebase storage</li>
-                    </ul>
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-newspaper"></i> DBCL Matrix</h3>
-                    <p>Content management system for Dainik Bhaskar Publishing.</p>
-                    <ul>
-                        <li>Multi-language content management (Gujarati, Hindi, Marathi, English)</li>
-                        <li>Content workflow management</li>
-                        <li>PDF edition viewer</li>
-                        <li>Face detection and content auto-correction</li>
-                        <li>Internal chat module with Firebase integration</li>
-                    </ul>
-                   
-                </div> -->
-
-                <!-- <div class="project-item">
-                    <h3><i class="fas fa-quote-right"></i> Morning Motivation</h3>
-                    <p>Motivational quotes sharing application.</p>
-                    <ul>
-                        <li>Daily motivational quotes</li>
-                        <li>Quote sharing as text or image</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.infotechbite.motivationalquotes" target="_blank">
-                            <i class="fab fa-google-play"></i> View on Play Store
-                        </a>
-                    </div>
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-brain"></i> Bodychats (React Native)</h3>
-                    <p>Educational app for body language learning.</p>
-                    <ul>
-                        <li>Interactive learning modules</li>
-                        <li>Multiple-choice questions</li>
-                        <li>Image and video quizzes</li>
-                        <li>Offline functionality with Realm database</li>
-                                            </ul>
-                   
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-store"></i> Lamilano Manager App (React Native)</h3>
-                    <p>Order management system for store managers and riders.</p>
-                    <ul>
-                        <li>Order assignment and tracking</li>
-                        <li>Real-time status updates</li>
-                        <li>Background location tracking</li>
-                        <li>Rider order management</li>
-                    </ul>
-                </div> -->
-
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-tools"></i> Mine Service (React Native)</h3>
-                    <p>Service marketplace and product trading platform.</p>
-                    <ul>
-                        <li>Service provider discovery</li>
-                        <li>Product buying/selling marketplace</li>
-                        <li>City-based service matching</li>
-                        <li>In-app chat functionality</li>
-                        <li>Service quotation system</li>
-                    </ul>
-                </div>
- -->
-<!--                 <div class="project-item">
-                    <h3><i class="fas fa-chart-line"></i> Mine Business (React Native)</h3>
-                    <p>Vendor management application.</p>
-                    <ul>
-                        <li>Service request management</li>
-                        <li>Service status tracking</li>
-                        <li>Customer chat integration</li>
-                        <li>6-month performance analytics</li>
-                        <li>Business reporting and insights</li>
-                    </ul>
-                </div> -->
-<!--             </div> -->
+    <section>
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Smart Task Manager</h3>
+          <p>Built a full-stack task manager app with real-time updates using React, Node.js, and MongoDB.</p>
+          <a href="https://github.com/your-username/smart-task-manager" target="_blank">View on GitHub</a>
         </div>
-    </div>
-    <style>
-        .download-btn {
-            background: white;
-            color: #764ba2;
-            border: 2px solid #764ba2;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        <div class="project">
+          <h3>WeatherNow</h3>
+          <p>A simple, beautiful weather forecast app using OpenWeather API and vanilla JavaScript with responsive design.</p>
+          <a href="https://github.com/your-username/weathernow" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+          <h3>Portfolio Site</h3>
+          <p>This site you're viewing! Designed from scratch with HTML and CSS to reflect my work and personality.</p>
+          <a href="https://github.com/your-username/your-username.github.io" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </section>
 
-        .download-btn:hover {
-            background: #764ba2;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
+      <p>GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></p>
+    </section>
+  </main>
 
-        .download-btn i {
-            font-size: 1.1rem;
-        }
- // Higher scale for better quality
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .download-btn {
-                display: none !important;
-                visibility: hidden;
-                opacity: 0;
-            }
-
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-        function downloadPDF() {
-            const element = document.querySelector('.container');
-            const button = document.querySelector('.download-btn');
-            
-            // Hide button before PDF generation
-            button.style.display = 'none'
-            
-            const options = {
-                margin: [5, 5], // Reduced margins to minimize white space
-                filename: 'dimple_patel_resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2,
-                    useCORS: true,
-                    letterRendering: true,
-                    logging: false
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait' 
-                },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-
-            html2pdf().set(options).from(element).save().then(() => {
-                // Restore button after PDF generation
-                button.style.display = 'inline-flex';
-            }).catch(err => {
-                console.error('PDF generation failed:', err);
-                button.style.display = 'inline-flex';
-            });
-        }
-    </script>
+  <footer>
+    © 2025 Your Name. Designed with love and coffee ☕
+  </footer>
 </body>
 </html>
