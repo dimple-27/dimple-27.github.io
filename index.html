@@ -29,9 +29,9 @@
     .menu-button {
       display: none;
       font-size: 2rem;
-      position: absolute;
+      position: fixed;
       top: 1rem;
-      left: 1rem;
+      right: 1rem;
       z-index: 1001;
       background: transparent;
       border: none;
@@ -41,19 +41,19 @@
     nav.drawer {
       position: fixed;
       top: 0;
-      left: -250px;
+      right: -250px;
       width: 250px;
       height: 100vh;
       background: #0f172a;
       color: white;
       padding: 2rem 1rem;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-      transition: left 0.3s ease;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: right 0.3s ease;
       z-index: 1000;
     }
 
     nav.drawer.open {
-      left: 0;
+      right: 0;
     }
 
     nav.drawer a {
@@ -202,17 +202,13 @@
       text-align: center;
     }
 
-    .contact p {
-      margin: 0.5rem 0;
-    }
-
     .contact-icons {
       margin-top: 1.5rem;
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 1.2rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.1rem;
     }
 
     .contact-icons span {
@@ -247,7 +243,7 @@
 </head>
 <body>
   <button class="menu-button" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-ellipsis-v"></i>
   </button>
   <nav class="drawer" id="drawerMenu">
     <a href="#about" onclick="toggleMenu()">About</a>
@@ -257,7 +253,7 @@
   </nav>
 
   <header>
-    <img src="profile.jpg" alt="Profile Picture">
+    <img src="vishal.jpg" alt="Profile Picture">
     <h1>Vishal Patel</h1>
     <div class="typing-text" id="typing"></div>
   </header>
