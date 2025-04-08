@@ -232,6 +232,22 @@
       color: var(--accent-color);
     }
 
+    .social-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .social-icons a {
+      color: var(--main-color);
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+
     footer {
       background: var(--main-color);
       color: white;
@@ -312,13 +328,15 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
+   <section id="contact" class="contact">
     <h2>Contact</h2>
     <div class="contact-icons">
       <span><i class="fas fa-envelope"></i> <a href="mailto:vishalpatel@example.com">vishalpatel@example.com</a></span>
       <span><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91-9876543210</a></span>
-      <span><i class="fab fa-github"></i> <a href="https://github.com/your-github-profile" target="_blank">GitHub</a></span>
-      <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</a></span>
+    </div>
+    <div class="social-icons">
+      <a href="https://github.com/your-github-profile" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </section>
 
@@ -356,17 +374,9 @@
     function toggleMenu() {
       const menu = document.getElementById("drawerMenu");
       const icon = document.getElementById("menuIcon");
-      const button = document.querySelector('.menu-button');
-
       menu.classList.toggle("open");
       icon.classList.toggle("fa-bars");
       icon.classList.toggle("fa-times");
-
-      if (menu.classList.contains("open")) {
-        button.style.color = 'white';
-      } else {
-        button.style.color = '#0f172a';
-      }
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -381,13 +391,11 @@
 
           const menu = document.getElementById("drawerMenu");
           const icon = document.getElementById("menuIcon");
-          const button = document.querySelector('.menu-button');
-
           if (menu.classList.contains('open')) {
             menu.classList.remove("open");
             icon.classList.add("fa-bars");
             icon.classList.remove("fa-times");
-            button.style.color = '#0f172a';
+            icon.style.color = '#0f172a';
           }
         });
       });
@@ -395,8 +403,8 @@
 
     window.addEventListener('scroll', () => {
       const icon = document.getElementById('menuIcon');
-      const button = document.querySelector('.menu-button');
       if (!icon.classList.contains('fa-times')) {
+        const button = document.querySelector('.menu-button');
         if (window.scrollY > 50) {
           button.style.color = '#0f172a';
         } else {
