@@ -101,7 +101,7 @@
     }
 
     section {
-      padding: 2rem 2rem; /* Reduced from 4rem to 2rem */
+      padding: 2rem 1rem;
       max-width: 1000px;
       margin: auto;
     }
@@ -135,11 +135,6 @@
       background: #0f766e;
     }
 
-    .skills {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
     .skills ul {
       list-style: none;
       display: flex;
@@ -147,6 +142,7 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 1rem;
+      padding: 0;
     }
 
     .skills li {
@@ -157,9 +153,8 @@
     }
 
     .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
@@ -167,7 +162,6 @@
       background: #f1f5f9;
       padding: 1.5rem;
       border-radius: 12px;
-      width: 350px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
@@ -201,10 +195,6 @@
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 600;
-    }
-
-    .contact {
-      text-align: center;
     }
 
     .contact-icons {
@@ -258,6 +248,22 @@
     @media (max-width: 768px) {
       .menu-button {
         display: block;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .typing-text {
+        font-size: 1.2rem;
+      }
+
+      .project-card {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
