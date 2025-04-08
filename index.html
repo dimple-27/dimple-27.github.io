@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-color: #1e1b4b;
-      --accent-color: #a78bfa;
-      --bg-gradient: linear-gradient(135deg, #fdf4ff, #f3e8ff);
+      --main-color: #0f172a;
+      --accent-color: #2563eb;
+      --bg-gradient: #ffffff;
     }
 
     * {
@@ -22,11 +22,11 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg-gradient);
-      color: #1e293b;
+      color: var(--main-color);
     }
 
     header {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
       color: white;
       padding: 4rem 1rem;
       text-align: center;
@@ -59,6 +59,7 @@
       position: sticky;
       top: 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 999;
     }
 
     nav a {
@@ -91,6 +92,22 @@
       margin: auto;
     }
 
+    .resume-button {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .resume-button:hover {
+      background: #1d4ed8;
+    }
+
     .skills {
       text-align: center;
       margin-top: 2rem;
@@ -106,7 +123,7 @@
     }
 
     .skills li {
-      background: #ede9fe;
+      background: #e0f2fe;
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-size: 0.9rem;
@@ -120,11 +137,11 @@
     }
 
     .project-card {
-      background: white;
+      background: #f8fafc;
       padding: 1.5rem;
       border-radius: 12px;
       width: 350px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
 
@@ -208,6 +225,9 @@
     <p class="about">
       Passionate full-stack developer crafting clean and user-friendly experiences. Specialized in JavaScript, React, and Node.js with a knack for responsive design and API integration.
     </p>
+    <div style="text-align: center;">
+      <a class="resume-button" href="resume.pdf" target="_blank">View Resume</a>
+    </div>
     <div class="skills">
       <h3>Skills</h3>
       <ul>
@@ -238,7 +258,6 @@
       <p>Phone: +91-9876543210</p>
       <p>GitHub: <a href="https://github.com/vishalpatel247" target="_blank">github.com/vishalpatel247</a></p>
       <p>LinkedIn: <a href="https://linkedin.com/in/vishalpatel247" target="_blank">linkedin.com/in/vishalpatel247</a></p>
-      <p><a href="resume.pdf" target="_blank">View Resume</a></p>
     </div>
   </section>
 
