@@ -48,7 +48,7 @@
       background: #0f172a;
       color: white;
       padding: 2rem 1rem;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: -2px 0 10px rgba(169, 133, 133, 0.2);
       transition: right 0.5s ease-in-out;
       z-index: 1000;
     }
@@ -68,7 +68,7 @@
 
     nav.drawer a:hover,
     nav.drawer a.active {
-      color: var(--accent-color);
+      color: '#A8BBDD';
       transform: translateX(5px);
     }
 
@@ -253,6 +253,7 @@
     @media (max-width: 768px) {
       .menu-button {
         display: block;
+        transition: color 0.3s ease;
       }
 
       header h1 {
@@ -271,7 +272,9 @@
         padding: 1.5rem 1rem;
       }
     }
-
+    #drawerMenu.open ~ .menu-button i {
+        color: white;
+      }
   </style>
 </head>
 <body>
