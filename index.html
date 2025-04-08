@@ -68,10 +68,20 @@
 
     nav.drawer a:hover,
     nav.drawer a.active {
-      color: '#A8BBDD';
-      transform: translateX(5px);
+        position: relative;
     }
-
+    nav.drawer a:hover::after,
+    nav.drawer a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px; /* Thickness of the underline */
+      background-color: '#A8BBDD'; /* Underline color */
+      border-radius: 5px; /* Rounded corners */
+      transition: width 0.3s ease-in-out;
+    }
     header {
       background: linear-gradient(135deg, #2F5597, #A8BBDD);
       color: white;
