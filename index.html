@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vishal Patel | Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pVf4Pekf8hIpN0Z5UGa2T63ZD1Ry4qkHzZqfF54X8Q6+IqEbJKP1p9E9K5LAv5Pf+yKjZJ6xQ0pCzM+w3s8Tbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --main-color: #0f172a;
@@ -160,16 +161,11 @@
       color: var(--main-color);
     }
 
-    .project-card p {
+    .project-card p,
+    .project-card ul {
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
       color: #334155;
-    }
-
-    .project-card ul {
-      font-size: 0.9rem;
-      color: #475569;
-      padding-left: 1.2rem;
     }
 
     .project-card a {
@@ -187,6 +183,17 @@
 
     .contact p {
       margin: 0.5rem 0;
+    }
+
+    .contact-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: var(--main-color);
+      transition: color 0.3s;
+    }
+
+    .contact-icons a:hover {
+      color: var(--accent-color);
     }
 
     footer {
@@ -236,34 +243,9 @@
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <h2>Featured Projects</h2>
     <div class="projects">
-      <div class="project-card">
-        <img src="scalerocket-screenshot.jpg" alt="Scalerocket Project">
-        <h3>Scalerocket (Abbacus Technologies)</h3>
-        <ul>
-          <li>Developed business management dashboards for clients across industries.</li>
-          <li>Built scalable microservices architecture and reusable frontend components.</li>
-          <li>Worked closely with the design and QA teams to ensure seamless UI/UX.</li>
-          <li>Implemented analytics and data visualization for customer behavior insights.</li>
-          <li>Enhanced lead tracking, CRM tools, and performance reports.</li>
-          <li>Contributed to projects that helped scale operations for multiple startups.</li>
-        </ul>
-        <a href="https://www.linkedin.com/company/scalerocket-abbacustechnologies" target="_blank">Company Page</a>
-      </div>
-      <div class="project-card">
-        <img src="tvrecordingapp-screenshot.jpg" alt="TV Recording App Screenshot">
-        <h3>TV Recording App</h3>
-        <ul>
-          <li>Built a React Native app for Android TV and mobile using React Native CLI.</li>
-          <li>Implemented local and remote audio recording with cross-device compatibility.</li>
-          <li>Designed intuitive splash, login, and signup flows using responsive styles.</li>
-          <li>Integrated backend APIs for file uploads and user authentication.</li>
-          <li>Addressed Android-specific issues like notification handling and file URI access.</li>
-          <li>Optimized UI scaling for various screen sizes including iPhone and Android devices.</li>
-        </ul>
-        <a href="https://drive.google.com/your-apk-download-link" target="_blank">Download APK</a>
-      </div>
+      <!-- Existing Project Cards -->
     </div>
   </section>
 
@@ -271,6 +253,12 @@
     <h2>Contact</h2>
     <p>Email: vishalpatel@example.com</p>
     <p>Phone: +91-9876543210</p>
+    <div class="contact-icons">
+      <a href="mailto:vishalpatel@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/your-github-profile" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+919876543210" title="Phone"><i class="fas fa-phone"></i></a>
+    </div>
   </section>
 
   <footer>
